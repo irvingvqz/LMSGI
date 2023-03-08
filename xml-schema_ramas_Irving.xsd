@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- autor:irving-->
+
+<!-- elementos globales Alumno -->
+<xs:element name="globalAlumno">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="dia"></xs:element>
+            <xs:element ref="globalNombre"></xs:element>
+            <xs:element ref="curso"></xs:element>
+            <xs:element ref="asignatura"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- contenido de globalAlumno -->
+    <xs:element name="dia" type="xs:date"></xs:element>
+    <xs:element name="globalNombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="([A-Z][a-z]+)([A-Z][a-z]+)([A-Z][a-z]+)?"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="curso" type="xs:string"></xs:element>
+    <xs:element name="asignatura" type="xs:string"></xs:element>
+
+<!-- globalRecomendacionProfesor -->
+<xs:element name="globalRecomendacionProfesor">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="opcion1"></xs:enumeration>
+            <xs:enumeration value="opcion2"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- preguntas del questionario por poner algo-->
+<xs:element name="globalPregunta">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="300"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- declaracion de parte-->
+<xs:element name="parteDeIncidencias">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="conductas"></xs:element>
+            <xs:element ref="globalFirmas"></xs:element>
+            <xs:element ref="observacion"></xs:element>
+            <xs:element ref="informe"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+    <!-- contenido de parteDeIncidencias-->
+    <xs:element name="conductas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="conductasCC"></xs:element>
+                <xs:element ref="conductasGPC"></xs:element>
+                <xs:element ref="globalRecomendacionProfesor"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+        <!-- contenido de parteDeIncidencias > conductas-->
+        <xs:element name="conductasCC">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="a"></xs:enumeration>
+                    <xs:enumeration value="b"></xs:enumeration>
+                    <xs:enumeration value="c"></xs:enumeration>
+                    <xs:enumeration value="d"></xs:enumeration>
+                    <xs:enumeration value="e"></xs:enumeration>
+                    <xs:enumeration value="f"></xs:enumeration>
+                    <xs:enumeration value="g"></xs:enumeration>
+                    <xs:enumeration value="h"></xs:enumeration>
+                    <xs:enumeration value="i"></xs:enumeration>
+                    <xs:enumeration value="j"></xs:enumeration>
+                    <xs:enumeration value="k"></xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="conductasGPC">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="a"></xs:enumeration>
+                    <xs:enumeration value="b"></xs:enumeration>
+                    <xs:enumeration value="c"></xs:enumeration>
+                    <xs:enumeration value="d"></xs:enumeration>
+                    <xs:enumeration value="e"></xs:enumeration>
+                    <xs:enumeration value="f"></xs:enumeration>
+                    <xs:enumeration value="g"></xs:enumeration>
+                    <xs:enumeration value="h"></xs:enumeration>
+                    <xs:enumeration value="i"></xs:enumeration>
+                    <xs:enumeration value="j"></xs:enumeration>
+                    <xs:enumeration value="k"></xs:enumeration>
+                    <xs:enumeration value="l"></xs:enumeration>
+                    <xs:enumeration value="m"></xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+<!-- firmas -->
+<xs:element name="globalFirmas"></xs:element>
+
+    <!-- firmas contenido-->
+
+<!-- observacion -->
+<xs:element name="observacion" type="xs:string"></xs:element>
+
+<!-- informe -->
+<xs:element name="informe">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="globalNombre"></xs:element> <!-- nombre alumno-->
+            <xs:element ref="grupoAlumno"></xs:element>
+            <xs:element ref="lugarIncidente"></xs:element>
+            <xs:element ref="globalNombre"></xs:element> <!-- implicados -->
+            <xs:element ref="questionario"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+<!-- grupo alumno -->
+<xs:element name="grupoAlumno">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ASIR-1"></xs:enumeration>
+            <xs:enumeration value="ASIR-2"></xs:enumeration>
+            <xs:enumeration value="Asistencia-1"></xs:enumeration>
+            <xs:enumeration value="Asistencia-2"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+<!-- lugar incidente -->
+<xs:element name="lugarIncidente" type="xs:string"></xs:element>
+
+<!-- questionario -->
+<xs:element name="questionario">
+    <xs:complexType>
+        <xs:choice>
+            <xs:element ref="globalPregunta"></xs:element>
+            <xs:element ref="globalPregunta"></xs:element>
+            <xs:element ref="globalPregunta"></xs:element>
+            <xs:element ref="globalPregunta"></xs:element>
+        </xs:choice>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

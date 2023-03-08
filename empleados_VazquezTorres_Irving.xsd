@@ -1,0 +1,64 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema" elementFormDefault = "qualified">
+<!--autor:irving-->
+
+<!-- declaracion de empleados-->
+<xs:element name="empleados">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="empleado"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- declaracion de empleado -->
+<xs:element name="empleado">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="apellidos"></xs:element>
+            <xs:element ref="nombre"></xs:element>
+            <xs:element ref="fecha_alta"></xs:element>
+            <xs:element ref="cargo"></xs:element>
+            <xs:element ref="sueldo"></xs:element>
+            <xs:element ref="complemento"></xs:element>
+            <xs:element ref="ausencias"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- declaracion de contenido de empleado-->
+<xs:element name="apellidos" type="xs:string"></xs:element>
+<xs:element name="nombre" type="xs:string"></xs:element>
+<xs:element name="fecha_alta" type="xs:date"></xs:element>
+<!-- declarando cargo con enumeration-->
+<xs:element name="cargo">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Gerente"></xs:enumeration>
+            <xs:enumeration value="Contable"></xs:enumeration>
+            <xs:enumeration value="Director"></xs:enumeration>
+            <xs:enumeration value="Vendedor"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+<xs:element name="sueldo" type="xs:decimal"></xs:element>
+<xs:element name="complemento" type="xs:decimal"></xs:element>
+<xs:element name="ausencias" type="xs:nonNegativeInteger"></xs:element>
+
+<!-- atributos -->
+<xs:attribute name="codigo">
+    <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:pattern value="\d{4}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+
+<xs:attribute name="departamento">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][a-z]{4}(\d){3}"></xs:pattern> <!-- falta el * -->
+        </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+</xs:schema>

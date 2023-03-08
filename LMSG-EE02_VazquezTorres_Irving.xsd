@@ -1,0 +1,133 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema" elementFormDefault = "qualified">
+<!--autor:irving-->
+
+<!-- horarioAutobuses -->
+<xs:element name="horarioAutobuses">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="ruta"></xs:element>
+            <xs:element ref="autobus"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido horarioAutobuses -> ruta -->
+<xs:element name="ruta">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="origen"></xs:element>
+            <xs:element ref="destino"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido ruta -->
+<xs:element name="origen">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<xs:element name="destino">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- autobus -->
+<xs:element name="autobus">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="salida"></xs:element>
+            <xs:element ref="llegada"></xs:element>
+            <xs:element ref="servicio"></xs:element>
+            <xs:element ref="precio"></xs:element>
+            <xs:element ref="importe"></xs:element>
+        </xs:sequence>
+        <!-- atributo codigoAutobus-->
+        <xs:attribute name = "codigoAutobus" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[A-Z]{3}-\d{3}"></xs:pattern>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido autobus -->
+    <!-- restricciones sobre salida-->
+<xs:element name="salida">
+    <xs:complexType>
+        <xs:attribute name="fecha" use="required" type="xs:date"></xs:attribute>
+        <xs:attribute name="hora" use="required" type="xs:time"></xs:attribute>
+    </xs:complexType>
+</xs:element>
+<xs:element name="llegada"></xs:element>
+    <!-- restricciones sobre servicio-->
+<xs:element name="servicio">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Normal"></xs:enumeration>
+            <xs:enumeration value="Premium"></xs:enumeration>
+            <xs:enumeration value="Supra"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+<xs:element name="precio"></xs:element>
+<!-- importe -->
+<xs:element name="importe">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="ivaAplicado"></xs:element>
+            <xs:element ref="total"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido importe-->
+    <!-- restricción sobre ivaAplicado-->
+<xs:element name="ivaAplicado">
+    <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- total -->
+<xs:element name="total">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="parteNumeric"></xs:element>
+            <xs:element ref="moneda"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido total-->
+    <!-- restricción sobre parteNumeric-->
+<xs:element name="parteNumeric">
+    <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+            <xs:pattern value="\d{2}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+    <!-- restricción sobre moneda-->
+<xs:element name="moneda">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="euro"></xs:enumeration>
+            <xs:enumeration value="dólares"></xs:enumeration>
+            <xs:enumeration value="libra"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+</xs:schema>

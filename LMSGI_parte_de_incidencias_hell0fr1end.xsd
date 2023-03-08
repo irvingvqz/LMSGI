@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- autor: irving-->
+
+<!-- declaracion parte-->
+<xs:element name="parte">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="cabecera"></xs:element>
+            <xs:element ref="conductas"></xs:element>
+            <xs:element ref="footer"></xs:element>
+            <xs:element ref="observaciones"></xs:element>
+            <xs:element ref="informeAlumno"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- contenido de parte-->
+    <!-- declarando cabecera -->
+<xs:element name="cabecera">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="dia"></xs:element>
+            <xs:element ref="tipoAlumno"></xs:element>
+            <xs:element ref="curso"></xs:element>
+            <xs:element ref="modulo"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+        <!-- contenido cabecera-->
+        <xs:element name="dia" type="xs:date"></xs:element>
+        <xs:element name="tipoAlumno" type="xs:string"></xs:element>
+        <xs:element name="curso" type="xs:string"></xs:element>
+        <xs:element name="modulo" type="xs:string"></xs:element>
+
+    <!-- declarando CCC-->
+<xs:element name="conductas">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="motivo"></xs:element>
+            <xs:element ref="recomendacionProfesor"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+        <!-- contenido de conductas (enumeration?)-->
+        <xs:element name="motivo" type="xs:string"></xs:element>
+        <xs:element name="recomendacionProfesor" type="xs:string"></xs:element>
+
+    <!-- declarando footer-->
+<xs:element name="footer">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="horaClase"></xs:element>
+            <xs:element ref="firmaProfesor"></xs:element>
+            <xs:element ref="profesor"></xs:element>
+            <xs:element ref="hJE"></xs:element>
+            <xs:element ref="firmaJE"></xs:element>
+            <xs:element ref="hConvivencia"></xs:element>
+            <xs:element ref="firmaConvivencia"></xs:element>
+            <xs:element ref="firmaTutor"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+        <!-- contenido de footer-->
+<xs:element name="horaClase" type="xs:time"></xs:element>
+<xs:element name="firmaProfesor"></xs:element> <!-- computable?-->
+<xs:element name="profesor" type="xs:string"></xs:element>
+<xs:element name="hJE" type="xs:time"></xs:element>
+<xs:element name="firmaJE"></xs:element> <!-- computable?-->
+<xs:element name="hConvivencia" type="xs:time"></xs:element>
+<xs:element name="firmaConvivencia"></xs:element> <!-- computable?-->
+<xs:element name="firmaTutor"></xs:element> <!-- computable?-->
+
+<!-- declarando observaciones-->
+<xs:element name="observaciones" type="xs:string"></xs:element>
+
+<!-- declarando informeAlumno-->
+<xs:element name="informeAlumno">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="tipoAlumno"></xs:element>
+            <xs:element ref="grupo"></xs:element>
+            <xs:element ref="lugar"></xs:element>
+            <xs:element ref="implicados"></xs:element>
+            <xs:element ref="preguntas"></xs:element>
+            <xs:element ref="firmaAlumno"></xs:element> <!-- computable?-->
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- contenido informeAlumno-->
+<xs:element name="grupo" type="xs:string"></xs:element>
+<xs:element name="lugar" type="xs:string"></xs:element>
+<xs:element name="implicados" type="xs:string"></xs:element>
+<xs:element name="preguntas" type="xs:string"></xs:element>
+<xs:element name="firmaAlumno"></xs:element><!-- computable?-->
+</xs:schema>

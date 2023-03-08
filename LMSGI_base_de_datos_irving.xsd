@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- autor: irving -->
+
+<!-- bdComercial -->
+<xs:element name="bdComercial">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="tComercial"></xs:element>
+            <xs:element ref="tPedido"></xs:element>
+            <xs:element ref="tCliente"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    
+<!-- elementos globales -->
+    <!-- globalNombre-->
+    <xs:element name="globalNombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- globalApellidos-->
+    <xs:element name="globalApellidos">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- globalCiudad-->
+    <xs:element name="globalCiudad">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <!-- globalID--> 
+<!--  error en el tipo de dato
+    <xs:element name="id">
+        <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger">
+                <xs:maxLength value="10"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+-->
+    <!-- de mientras: -->
+<xs:element name="id" type="xs:integer"></xs:element>
+
+<!-- contenido de bdComercial -->
+<xs:element name="tComercial">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="globalNombre"></xs:element>
+            <xs:element ref="globalApellidos"></xs:element>
+            <xs:element ref="id"></xs:element>
+            <xs:element ref="globalCiudad"></xs:element>
+            <xs:element ref="comision"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- contenido de tComercial-->
+    <xs:element name="comision" type="xs:decimal"></xs:element>
+
+    <!-- contenido de bdComercial -->
+<xs:element name="tCliente">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="globalNombre"></xs:element>
+            <xs:element ref="globalApellidos"></xs:element>
+            <xs:element ref="id"></xs:element>
+            <xs:element ref="globalCiudad"></xs:element>
+            <xs:element ref="categoria"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- contenido de tComercial-->
+    <xs:element name="categoria">
+        <xs:simpleType>
+            <xs:restriction base="xs:string"> <!-- categorías -->
+                <xs:enumeration value=""></xs:enumeration>
+                <xs:enumeration value=""></xs:enumeration>
+                <xs:enumeration value=""></xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- bdComercial > tPedido-->
+    <xs:element name="tPedido">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"></xs:element>
+                <xs:element ref="cantidad"></xs:element>
+                <xs:element ref="fecha"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+        <!-- contenido de tPedido-->
+        <xs:element name="cantidad" type="xs:double"></xs:element>
+        <xs:element name="fecha" type="xs:date"></xs:element>
+
+<!-- faltan los atributos-->
+</xs:schema>

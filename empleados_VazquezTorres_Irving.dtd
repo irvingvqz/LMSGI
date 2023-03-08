@@ -1,0 +1,13 @@
+<!ELEMENT empleados (empleado+)>
+
+    <!ELEMENT empleado (apellidos,nombre,fecha_alta,cargo,sueldo,complemento?,ausencias?)>
+        <!ELEMENT apellidos (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT fecha_alta (#PCDATA)>
+        <!ELEMENT cargo (#PCDATA)>
+        <!ELEMENT sueldo (#PCDATA)>
+        <!ELEMENT complemento (#PCDATA)>
+        <!ELEMENT ausencias (#PCDATA)>
+    
+    <!ATTLIST empleado codigo CDATA  #REQUIRED>
+    <!ATTLIST empleado departamento CDATA #REQUIRED>

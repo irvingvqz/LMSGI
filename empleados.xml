@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Hacer el vocabulario XML-Schema por referencia que valide el siguiente documento. 
+Diseñar las restricciones de datos adecuadas para cada unidad de informacion.
+-->
+<!DOCTYPE empleados SYSTEM "empleados.dtd" >
+<empleados>
+    <empleado codigo = "1001" departamento = "Prin*001">
+        <apellidos>Salas Ruiz</apellidos>
+        <nombre>Carlos</nombre>
+        <fecha_alta>1990-12-17</fecha_alta>
+        <cargo>Director</cargo>
+        <sueldo>90525.25</sueldo>
+        <complemento>90525.25</complemento>
+    </empleado>
+    <empleado codigo = "1002" departamento = "Prin*002">
+        <apellidos>Sousa Ruiz</apellidos>
+        <nombre>Marta</nombre>
+        <fecha_alta>1990-12-17</fecha_alta>
+        <cargo>Gerente</cargo>
+        <sueldo>100525.25</sueldo>
+        <complemento>10525.25</complemento>
+    </empleado>
+    <empleado codigo = "1003" departamento = "Cont*001">
+        <apellidos>Alonso Martos</apellidos>
+        <nombre>Oscar</nombre>
+        <fecha_alta>2000-01-30</fecha_alta>
+        <cargo>Contable</cargo>
+        <sueldo>30427.83</sueldo>
+        <ausencias>5</ausencias>
+    </empleado>
+    <empleado codigo = "1004" departamento = "Cont*002">
+        <apellidos>Abascal Sanz</apellidos>
+        <nombre>Ana</nombre>
+        <fecha_alta>2010-03-15</fecha_alta>
+        <cargo>Contable</cargo>
+        <sueldo>25560.25</sueldo>
+        <ausencias>0</ausencias>
+    </empleado>
+    <empleado codigo = "1005" departamento = "Vend*001">
+        <apellidos>Bellota Ruiz</apellidos>
+        <nombre>Roberto</nombre>
+        <fecha_alta>2010-09-15</fecha_alta>
+        <cargo>Vendedor</cargo>
+        <sueldo>90525.25</sueldo>
+        <ausencias>3</ausencias>
+    </empleado>
+</empleados>

@@ -1,0 +1,14 @@
+<!ELEMENT horarioAutobuses (ruta+,autobus+)>
+    <!ELEMENT ruta (origen,destino)>
+        <!ELEMENT origen (#PCDATA)>
+        <!ELEMENT destino (#PCDATA)>
+    <!ELEMENT autobus (salida,llegada,servicio,precio,importe)>
+        <!ELEMENT salida (#PCDATA)>
+        <!ELEMENT llegada (#PCDATA)>
+        <!ELEMENT servicio (#PCDATA)>
+        <!ELEMENT precio (#PCDATA)>
+        <!ELEMENT importe (ivaAplicado,Total)>
+            <!ELEMENT ivaAplicado (#PCDATA)>
+            <!ELEMENT total (parteNumeric,moneda)>
+                <!ELEMENT parteNumeric (#PCDATA)>
+                <!ELEMENT moneda (#PCDATA)>
