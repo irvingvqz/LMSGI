@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- elementos globales -->
+
+    <!-- globalNombre50 -->
+<xs:element name="globalNombre50">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- elementos root -->
+
+    <!-- startwars -->
+        <!-- crear una tabla entre elementos y bd, por ejemplo, para 
+            asociacion crear antes asociaciones y meterlo dentro -->
+<xs:element name="starwars">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="personajes"/>
+            <xs:element ref="pelicula"/>
+            <xs:element ref="muerte"/>
+            <xs:element ref="planeta"/>
+            <xs:element ref="asociacion"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- elementos complejos -->
+
+    <!-- personajes -->
+<xs:element name="personajes">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="idPersonaje"/>
+            <xs:element ref="globalNombre50"/>
+            <xs:element ref="altura"/>
+            <xs:element ref="peso"/>
+            <xs:element ref="peloColor"/>
+            <xs:element ref="pielColor"/>
+            <xs:element ref="ojosColor"/>
+            <xs:element ref="nacimientoAnno"/>
+            <xs:element ref="genero"/>
+            <xs:element ref="creacionFecha"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- pelicula -->
+<xs:element name="pelicula">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="idPelicula"/>
+            <xs:element ref="episodio"/>
+            <xs:element ref="titulo"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- planeta -->
+<xs:element name="planeta">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="idPlaneta"/>
+            <xs:element ref="globalNombre50"/>
+            <xs:element ref="periodoRotacion"/>
+            <xs:element ref="periodoOrbital"/>
+            <xs:element ref="diametro"/>
+            <xs:element ref="clima"/>
+            <xs:element ref="gravedad"/>
+            <xs:element ref="terreno"/>
+            <xs:element ref="superficieAgua"/>
+            <xs:element ref="poblacion"/>
+            <xs:element ref="creacionFecha"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    <!-- asociacion -->
+<xs:element name="asociacion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="idAsociacion"/>
+            <xs:element ref="nombre255"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+
+</xs:schema>
